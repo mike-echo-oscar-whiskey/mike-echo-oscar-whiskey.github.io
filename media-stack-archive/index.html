@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>media-stack-archive</title>
+<meta name="description" content="A personal tool that stores an encrypted backup of its operator's own media library in their own Google Drive.">
+<style>
+  :root {
+    --bg: #ffffff;
+    --fg: #1a1a1a;
+    --muted: #5c5c5c;
+    --rule: #e2e2e2;
+    --link: #0b5cab;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #16181c;
+      --fg: #e8e8e8;
+      --muted: #a0a4ab;
+      --rule: #2c3038;
+      --link: #79b8ff;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #16181c;
+    --fg: #e8e8e8;
+    --muted: #a0a4ab;
+    --rule: #2c3038;
+    --link: #79b8ff;
+  }
+  * { box-sizing: border-box; }
+  body {
+    background: var(--bg);
+    color: var(--fg);
+    font: 16px/1.65 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    margin: 0;
+    padding: 3rem 16px 4rem;
+  }
+  main { max-width: 38rem; margin: 0 auto; }
+  h1 { font-size: 1.6rem; line-height: 1.25; margin: 0 0 .25rem; }
+  .sub { color: var(--muted); margin: 0 0 2rem; }
+  h2 { font-size: 1.05rem; margin: 2rem 0 .5rem; }
+  ul { padding-left: 1.2rem; }
+  li { margin: .3rem 0; }
+  code {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: .875em;
+    background: color-mix(in srgb, var(--fg) 8%, transparent);
+    padding: .1em .35em;
+    border-radius: 3px;
+    overflow-wrap: anywhere;
+  }
+  a { color: var(--link); }
+  footer {
+    margin-top: 3rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--rule);
+    color: var(--muted);
+    font-size: .9rem;
+  }
+</style>
+</head>
+<body>
+<main>
+  <h1>media-stack-archive</h1>
+  <p class="sub">A personal tool. Not a product, and not available to anyone else.</p>
+
+  <p>
+    media-stack-archive is a single-user utility that keeps an encrypted backup of one private
+    personal media collection in its operator's own Google Drive account. The collection consists
+    of backup copies of physical discs the operator owns. It is private, is not shared with anyone,
+    and is not published, streamed or distributed beyond the household that owns it. The tool is
+    built on <a href="https://rclone.org/">rclone</a> and runs on one private machine.
+  </p>
+
+  <h2>What it does</h2>
+  <ul>
+    <li>Uploads files from a private media library to one folder in the operator's own Google Drive.</li>
+    <li>Encrypts every file before it leaves the machine, so the stored data is unreadable without a
+      key that never leaves that machine.</li>
+    <li>Reads those files back when the operator plays them.</li>
+    <li>Deletes them when the operator removes them from the library.</li>
+  </ul>
+
+  <h2>Who can use it</h2>
+  <p>
+    Nobody else. There is no sign-up, no hosted service and no shared instance. The OAuth client
+    exists only so that one person's copy of rclone can reach one person's own Drive.
+  </p>
+
+  <h2>Google account access</h2>
+  <p>
+    It requests access to the operator's own Google Drive in order to upload, download and delete
+    the operator's own files. It never accesses anyone else's account, and it sends nothing to any
+    third party. The details are in the <a href="privacy.html">privacy policy</a>.
+  </p>
+
+  <footer>
+    <p><a href="privacy.html">Privacy policy</a></p>
+  </footer>
+</main>
+</body>
+</html>
